@@ -1,0 +1,51 @@
+First, make sure that both VMs are up and running and that you have access to them. You'll need to know the IP addresses or hostnames of each VM.
+
+Next, on the VM that you want to connect from (let's call it VM A), generate a new SSH key pair using the ssh-keygen command. This will create a public key and a private key.
+
+Copy the public key from VM A to the other VM (let's call it VM B) using the ssh-copy-id command. This will add the public key to the authorized_keys file on VM B, allowing you to log in to VM B without having to enter a password.
+
+Now, try connecting from VM A to VM B using the ssh command. You should be able to log in without entering a password, since the SSH key exchange has been completed.
+
+Here's a more detailed breakdown of each step:
+
+Step 1: Make sure both VMs are up and running
+
+This step is pretty straightforward. Make sure both VMs are running and that you have access to them (i.e., you can SSH into them or connect to them via a console).
+
+Step 2: Generate a new SSH key pair on VM A
+
+On VM A, open a terminal window and run the following command:
+
+Copy code
+ssh-keygen
+This will generate a new SSH key pair and save it in the default location (~/.ssh/id_rsa for the private key and ~/.ssh/id_rsa.pub for the public key).
+
+Step 3: Copy the public key to VM B
+
+Now, you need to copy the public key from VM A to VM B. To do this, run the following command on VM A:
+
+sql
+Copy code
+ssh-copy-id username@vm_b_ip_address
+Replace "username" with the username you want to use to log in to VM B, and "vm_b_ip_address" with the IP address or hostname of VM B. You'll be prompted to enter the password for the username you specified.
+
+Once the command has completed, the public key from VM A should be added to the authorized_keys file on VM B.
+
+Step 4: Test the connection
+
+Finally, try connecting from VM A to VM B using the ssh command:
+
+css
+Copy code
+ssh username@vm_b_ip_address
+You should be able to log in without entering a password, since the SSH key exchange has been completed. If you're prompted for a password, something may have gone wrong with the SSH key exchange. Double-check that you followed all the steps correctly and try again.
+
+That's it! Once you've completed these steps, you should be able to connect from VM A to VM B without entering a password, making it easier to manage your VMs remotely.
+
+
+
+
+
+the ssh-copy -id at what path it will copy ?
+The ssh-copy-id command copies the public key to the remote machine's authorized_keys file, which is typically located in the .ssh directory in the remote user's home directory.
+
