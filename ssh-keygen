@@ -16,17 +16,15 @@ Step 2: Generate a new SSH key pair on VM A
 
 On VM A, open a terminal window and run the following command:
 
-Copy code
-ssh-keygen
+-->ssh-keygen
 This will generate a new SSH key pair and save it in the default location (~/.ssh/id_rsa for the private key and ~/.ssh/id_rsa.pub for the public key).
 
 Step 3: Copy the public key to VM B
 
 Now, you need to copy the public key from VM A to VM B. To do this, run the following command on VM A:
 
-sql
-Copy code
-ssh-copy-id username@vm_b_ip_address
+
+---> ssh-copy-id username@vm_b_ip_address
 Replace "username" with the username you want to use to log in to VM B, and "vm_b_ip_address" with the IP address or hostname of VM B. You'll be prompted to enter the password for the username you specified.
 
 Once the command has completed, the public key from VM A should be added to the authorized_keys file on VM B.
@@ -35,15 +33,11 @@ Step 4: Test the connection
 
 Finally, try connecting from VM A to VM B using the ssh command:
 
-css
-Copy code
-ssh username@vm_b_ip_address
+
+---> ssh username@vm_b_ip_address
 You should be able to log in without entering a password, since the SSH key exchange has been completed. If you're prompted for a password, something may have gone wrong with the SSH key exchange. Double-check that you followed all the steps correctly and try again.
 
 That's it! Once you've completed these steps, you should be able to connect from VM A to VM B without entering a password, making it easier to manage your VMs remotely.
-
-
-
 
 
 the ssh-copy -id at what path it will copy ?
