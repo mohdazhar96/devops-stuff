@@ -1,0 +1,12 @@
+this to update in /etc/postfix/main.cf
+
+inet interface
+myorigin
+mydestination
+myhostname
+mynetwork
+
+
+posts require to open:
+mailserver 25
+dovcot 110
