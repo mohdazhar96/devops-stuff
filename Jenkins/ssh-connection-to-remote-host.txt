@@ -1,0 +1,14 @@
+step1: Installing the SSH plugin:
+
+
+step2: Configuring the key for remote-user:
+Navigate to Jenkins Dashboard> Manage Jenkins > Manage Credentials to configure the SSH private key for the remote user. This user will be configured in Jenkins and can be used by the Jenkins builds.
+Enter the private key content as shown below.Configuring the key for remote-user:
+Navigate to Jenkins Dashboard> Manage Jenkins > Manage Credentials to configure the SSH private key for the remote user. This user will be configured in Jenkins and can be used by the Jenkins builds.
+Enter the private key content as shown below.
+ 
+step3: Configuring the remote host to be connected via SSH:
+Navigate to Jenkins Dashboard> Manage Jenkins > Configure System. Add this remote host
+
+step4: Testing the remote-host connection in the Jenkins build:
+Goto specific job and Select ‘execute shell script on the remote host using SSH’ as one of the build steps and run the job
