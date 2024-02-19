@@ -1,0 +1,24 @@
+Resizing the EBS.
+
+step1: check filesystem
+
+        sudo file -s /dev/xvda1
+
+step2: if ext4 file system then:
+          resize2fs /dev/xvdf
+       
+       if xfs file system then:
+          sudo xfs_growfs /dev/nvme1n1p1
+
+step3: confirm the filesystem volume using
+           df -h
+
+
+Note if the volume is divided into multiple partions the select the particular partition which you want to increase and run.
+      
+      - growpart /dev/xvda 1 (partition 1 get resize)
+      - resire2fs /dev/xvda1  OR xfs_growfs /dev/nvme1n1p1 (use based on the file system)
+
+
+----------------------------------------------------------------------------------------------
+sudo growpart /dev/nvme1n1 1
